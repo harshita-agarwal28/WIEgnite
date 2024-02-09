@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Living</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        #tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #2980b9;
+        }
+
+        #project-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .item h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .item p {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sustainable Living</h1>
+
+    <div id="tabs">
+        <div class="tab" onclick="showProjects()">DIY Sustainable Projects</div>
+    </div>
+
+    <div id="project-container">
+        <h2>DIY Sustainable Projects</h2>
+        <ul id="project-list"></ul>
+    </div>
+
+    <script>
+        function showProjects() {
+            const container = document.getElementById("project-container");
+            const list = document.getElementById("project-list");
+
+            // Clear previous content
+            list.innerHTML = "";
+
+            // Display sustainable DIY projects
+            const projects = [
+                {
+                    name: "Homemade Ayurvedic Face Mask",
+                    materials: ["Besan (Gram Flour)", "Turmeric", "Honey", "Rosewater"],
+                    instructions: "1. Mix besan, turmeric, honey, and rosewater to form a paste. 2. Apply on the face. 3. Leave for 15-20 minutes. 4. Rinse off with warm water."
+                },
+                {
+                    name: "Natural All-Purpose Cleaner",
+                    materials: ["White Vinegar", "Water", "Lemon Peels"],
+                    instructions: "1. Fill a jar with lemon peels. 2. Pour white vinegar over the peels. 3. Let it sit for a few days. 4. Dilute with water and use as a natural cleaner."
+                },
+                {
+                    name: "DIY Beeswax Food Wraps",
+                    materials: ["Beeswax", "Cotton Fabric", "Jojoba Oil"],
+                    instructions: "1. Cut the fabric into desired sizes. 2. Melt beeswax and brush it onto the fabric. 3. Add a few drops of jojoba oil. 4. Let it cool and use as a reusable food wrap."
+                },
+                {
+                    name: "Herbal Hair Rinse",
+                    materials: ["Rosemary", "Lavender", "Apple Cider Vinegar", "Water"],
+                    instructions: "1. Boil rosemary and lavender in water. 2. Strain the herbs and mix with apple cider vinegar. 3. Use as a final hair rinse for shine and fragrance."
+                }
+                // Add more sustainable projects as needed
+            ];
+
+            // Display each project
+            projects.forEach(project => {
+                const listItem = document.createElement("li");
+                listItem.className = "item";
+                listItem.innerHTML = `<h3>${project.name}</h3><p><strong>Materials:</strong> ${project.materials.join(", ")}</p><p><strong>Instructions:</strong> ${project.instructions}</p>`;
+                list.appendChild(listItem);
+            });
+
+            // Show the container
+            container.style.display = "block";
+        }
+    </script>
+</body>
+</html>
