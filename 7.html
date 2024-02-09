@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Farming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2ecc71;
+        }
+
+        #farmers-form {
+            max-width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        #response-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9f7ef;
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <h1>Organic Farming</h1>
+
+    <div id="farmers-form">
+        <h2>Connect with Farmers</h2>
+
+        <form id="contact-form" onsubmit="submitForm(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="preferences">Preferences (e.g., types of produce you are interested in):</label>
+            <textarea id="preferences" name="preferences" rows="4"></textarea>
+
+            <label for="message">Message to Farmers:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="response-message"></div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const form = document.getElementById("contact-form");
+            const responseMessage = document.getElementById("response-message");
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // In a real-world scenario, you would send this data to a server for further processing
+            // For simplicity, we'll just display a success message here
+            responseMessage.innerHTML = `<p>Thank you, ${data.name}! Your message has been submitted. Farmers will contact you soon.</p>`;
+
+            // Clear the form
+            form.reset();
+        }
+    </script>
+</body>
+</html>
