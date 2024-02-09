@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Doctors</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9f7ef;
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Connect with Doctors</h1>
+
+    <div class="container">
+        <h2>Enter Your Symptoms</h2>
+        <p>Please describe your symptoms below. Our system will provide a preliminary diagnosis, and you can request a consultation with a doctor if needed.</p>
+
+        <form id="diagnosis-form" onsubmit="submitSymptoms(event)">
+            <label for="symptoms">Describe Your Symptoms:</label>
+            <textarea id="symptoms" name="symptoms" rows="4" placeholder="e.g., fever, cough, headache" required></textarea>
+
+            <button type="submit">Get Diagnosis</button>
+        </form>
+
+        <div id="result" class="result hidden"></div>
+    </div>
+
+    <div id="doctor-contact" class="container hidden">
+        <h2>Consultation Request</h2>
+        <p>Your preliminary diagnosis has been generated. If you need further assistance, please fill out the form below to request a consultation with a doctor.</p>
+        <button onclick="showDoctorForm()">Request Consultation</button>
+    </div>
+
+    <div id="doctor-form" class="container hidden">
+        <h2>Request a Consultation</h2>
+
+        <form id="consultation-form" onsubmit="requestConsultation(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message to Doctor:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+
+            <button type="submit">Request Consultation</button>
+        </form>
+    </div>
+
+    <script>
+        function submitSymptoms(event) {
+            event.preventDefault();
+
+            const symptoms = document.getElementById("symptoms").value;
+            const resultDiv = document.getElementById("result");
+
+            // Placeholder for a real machine learning model
+            const predictedDisease = predictDisease(symptoms);
+
+            // Display the result
+            resultDiv.innerHTML = `<p>Your preliminary diagnosis: ${predictedDisease}</p>`;
+            resultDiv.classList.remove('hidden');
+
+            // Show the doctor contact section
+            document.getElementById("doctor-contact").classList.remove('hidden');
+        }
+
+        function showDoctorForm() {
+            // Show the doctor consultation form
+            document.getElementById("doctor-form").classList.remove('hidden');
+        }
+
+        function requestConsultation(event) {
+            event.preventDefault();
+
+            const consultationForm = document.getElementById("consultation-form");
+            const name = consultationForm.elements["name"].value;
+            const email = consultationForm.elements["email"].value;
+            const message = consultationForm.elements["message"].value;
+
+            // Placeholder for backend integration (simulating a server request)
+            simulateConsultationRequest(name, email, message);
+
+            // Display a success message
+            consultationForm.innerHTML = "<p>Your consultation request has been submitted. A doctor will contact you soon.</p>";
+        }
+
+        function simulateConsultationRequest(name, email, message) {
+            // Placeholder for a real backend integration (simulating a server request)
+            // In a real-world scenario, this data would be sent to a server for further processing
+            console.log("Simulating consultation request:", { name, email, message });
+        }
+
+        function predictDisease(symptoms) {
+            // Placeholder for a real machine learning model
+            const diseases = ["Common Cold", "Influenza", "Allergies", "COVID-19", "Migraine", "Food Poisoning"];
+            const randomIndex = Math.floor(Math.random() * diseases.length);
+            return diseases[randomIndex];
+        }
+    </script>
+</body>
+</html>
