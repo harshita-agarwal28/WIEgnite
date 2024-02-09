@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Awareness Sessions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffeadb; /* Changed background color to a very light peach */
+        }
+
+        header {
+            background-color: #000; /* Changed header background color to black */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .session {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            position: relative; /* Added position relative for button positioning */
+        }
+
+        .session h3 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+
+        .join-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000; /* Changed button background color to black */
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .join-btn:hover {
+            background-color: #333; /* Changed button hover background color to a darker shade of black */
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #000; /* Changed form button background color to black */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #333; /* Changed form button hover background color to a darker shade of black */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health Awareness Sessions</h1>
+    </header>
+    
+    <section id="home">
+        <h2>Welcome to Health Awareness Sessions</h2>
+        <p>Empowering individuals through knowledge for a healthier life.</p>
+    </section>
+    
+    <section id="sessions">
+        <h2>Upcoming Sessions</h2>
+        <div class="session">
+            <h3>Session Title 1</h3>
+            <p>Date: January 25, 2024</p>
+            <p>Time: 3:00 PM - 5:00 PM</p>
+            <p>Location: Virtual</p>
+            <button class="join-btn" onclick="joinSession()">Join Session</button>
+        </div>
+        <div class="session">
+            <h3>Session Title 2</h3>
+            <p>Date: February 10, 2024</p>
+            <p>Time: 2:00 PM - 4:00 PM</p>
+            <p>Location: Community Center</p>
+            <button class="join-btn" onclick="joinSession()">Join Session</button>
+        </div>
+        <!-- Add more session details as needed -->
+    </section>
+
+    <script>
+        function joinSession() {
+            // Placeholder function for joining session
+            alert("You have joined the session.");
+        }
+    </script>
+</body>
+</html>
